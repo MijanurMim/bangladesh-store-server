@@ -1,12 +1,21 @@
 const app = require("./app");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 // require("dotenv").config();
 // config
 dotenv.config({ path: "config/config.env" });
 
 // const port = process.env.PORT || 4000;
 const cloudinary = require("cloudinary");
+
+// cors
+// cors config
+var corsOptions = {
+  origin: "https://bangladeshstorensd.com",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 // Handle Uncaught Exception
 process.on("uncaughtException", (err) => {
