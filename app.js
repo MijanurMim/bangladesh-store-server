@@ -4,8 +4,13 @@ const errorMiddleware = require("./middleware/error.js");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
+const cors = require("cors");
 
-// app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(cookieParser());
 
 app.use(express.json({ limit: "50mb" }));
