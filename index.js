@@ -10,12 +10,11 @@ dotenv.config({ path: "config/config.env" });
 const cloudinary = require("cloudinary");
 
 // cors
-// cors config
-var corsOptions = {
-  origin: "https://bangladeshstorensd.com",
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // Handle Uncaught Exception
 process.on("uncaughtException", (err) => {

@@ -30,6 +30,8 @@ app.use("/api/v1", user);
 app.use("/api/v1", accessories);
 app.use("/api/v1", units);
 
+app.use(express.static(__dirname));
+
 // Middleware For Error
 app.use(errorMiddleware);
 
