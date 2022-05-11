@@ -41,7 +41,10 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Invalid Email or Password", 401));
   }
 
+  // const token = user.getJWTToken();
+
   sendToken(user, 200, res);
+  // res.cookie("Token", token,{expires});
 });
 
 // Log Out User
