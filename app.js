@@ -18,7 +18,8 @@ morgan("tiny");
 // );
 
 var corsOptions = {
-  origin: "https://bangladesh-store-frontend-lyart.vercel.app",
+  // origin: "https://bangladesh-store-frontend-lyart.vercel.app",
+  origin: "*",
   // optionsSuccessStatus: 200, // For legacy browser support
 };
 
