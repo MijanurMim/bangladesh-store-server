@@ -5,8 +5,11 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
-
+const dotenv = require("dotenv");
+const path = require("path");
 const morgan = require("morgan");
+
+dotenv.config({ path: "config/config.env" });
 
 morgan("tiny");
 
@@ -48,7 +51,11 @@ app.use("/api/v1", user);
 app.use("/api/v1", accessories);
 app.use("/api/v1", units);
 
-// app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+});
 
 // Middleware For Error
 app.use(errorMiddleware);

@@ -34,9 +34,10 @@ const start = async () => {
   }
 
   // Starting the server
-  app.listen(process.env.PORT, () => {
-    console.log(`Server is Running on port : ${process.env.PORT} `);
-  });
+
+  // app.listen(process.env.PORT, () => {
+  //   console.log(`Server is Running on port : ${process.env.PORT} `);
+  // });
 };
 start();
 
@@ -47,10 +48,16 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// Starting the server
+app.listen(process.env.PORT, () => {
+  console.log(`Server is Running on port : ${process.env.PORT} `);
+});
+
 // Unhandled Promise Rejection
 process.on("unhandledRejection", (err) => {
   console.log(`Error: ${err.message}`);
   console.log(`Shutting Down The Server Due to Unhandled Promise Rejection`);
+
   server.close(() => {
     process.exit(1);
   });
